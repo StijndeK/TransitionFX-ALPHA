@@ -6,6 +6,9 @@ These effects usually consist of samples and/or synthesis. I found that there wa
 ```diff
 - TFX IS STILL UNDER DEVELOPMENT, ALL FEATURES ARE SUBJECT TO CHANGE.
 ```
+
+<img width="641" alt="TransitionFX" src="https://user-images.githubusercontent.com/31696336/75611662-c88b3680-5b1c-11ea-967d-c5151b20fc68.png">
+
 ## Code hierarchy 
 TFX is made in C++ using the JUCE framework and Maximilian DSP library. 
 NOTE: Some of the JUCE and Maximilian source code has been edited to allow for certain features, such as the JUCE synthesiser class.
