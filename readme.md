@@ -4,7 +4,7 @@ Transition FX is a synthesiser optimalised for creating transitional moving effe
 These effects usually consist of samples and/or synthesis. I found that there was a lack of a intuitive synthesiser that is optimalised for these effects, which is why I started developing Transition FX.
 
 ```diff
-- TFX is still under development, all features are subject to change.
+- TFX IS STILL UNDER DEVELOPMENT, ALL FEATURES ARE SUBJECT TO CHANGE.
 ```
 ## Code hierarchy 
 TFX is made in C++ using the JUCE framework and Maximilian DSP library. 
