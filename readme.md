@@ -13,7 +13,7 @@ These effects usually consist of samples and/or synthesis. I found that there wa
 TFX is made in C++ using the JUCE framework and Maximilian DSP library. 
 NOTE: Some of the JUCE and Maximilian source code has been edited to allow for certain features, such as the JUCE synthesiser class.
 
-### class diagram
+### Classes
 TFX is divided into two main components that come together in the Processor. 
 - The plugin editor handles all visuals and GUI elements
 - The processor handles the audio processing and GUI callback
