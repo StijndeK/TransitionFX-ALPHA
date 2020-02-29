@@ -41,6 +41,6 @@ The main amplitude envelope is one of the most important aspects of a transition
 ## Improvements
 TFX is still under heavy development. There are a lot of functionalities to be added.
 
-current MVPs: 
-- [ ] restructure into a more modular system, that allows easier edits and optimalisation.
+Current MVP: 
+- [ ] Restructure into a more modular system, that allows easier edits and optimalisation.
 - [ ] Use listeners to remove as much as possible from the processblock
