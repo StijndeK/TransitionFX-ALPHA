@@ -7,6 +7,8 @@ These effects can consist of samples and/or synthesis. I found that there was a 
 - TFX is still under development, all features are subject to change.
 ```
 ## Code hierarchy 
+TFX is made in C++ using the JUCE framework and Maximilian DSP library. 
+Some JUCE source code has been edited. Mainly the synthesiser class has been edited to allow for certain features.
 
 ### class diagram
 TFX is divided in to two main parts that come together in the Processor. 
