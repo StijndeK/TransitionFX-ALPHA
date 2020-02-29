@@ -15,9 +15,10 @@ As a composer and sound design for media, I use a lot of moving transitional eff
 ![TFX_CLasses](https://user-images.githubusercontent.com/31696336/75609684-0bdca980-5b0b-11ea-8e0f-c8de5617e69a.png)
 
 ### Synth
+![TFX_Synth](https://user-images.githubusercontent.com/31696336/75609793-b81e9000-5b0b-11ea-9a8d-ebb65640d3b7.png)
 
 ### Dataflow
-
+![TFX_DataFlow](https://user-images.githubusercontent.com/31696336/75609831-05026680-5b0c-11ea-82bc-171d6a78d97c.png)
 
 ## Feature examples
 
