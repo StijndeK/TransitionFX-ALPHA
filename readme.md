@@ -31,11 +31,11 @@ When using transitional effects, the point of impact often is set while the atta
 To be able to time the audio with visuals the length can be set in time, beat, frames and samples.
 <img width="612" alt="TFX_timeOptions" src="https://user-images.githubusercontent.com/31696336/75610211-709a0300-5b0f-11ea-9959-bfb02e58bfe2.png">
 
-### Multiply osc
-
-### Effects
-
-## Interface
+### Master Amplitude Envelope
+The main amplitude envelope is one of the most important aspects of a transitional effect, which is why it can be edited in 14 steps. Smooth creates a smoother curve between the 14 points, with a certain amount. The bar in the middle fades the points from a 'exponential' to 'anticlimactic' curve. The release offset serves to lower the volume of the release in contrary to the attack and impact.
+<img width="606" alt="TFX_Envelope" src="https://user-images.githubusercontent.com/31696336/75610274-13eb1800-5b10-11ea-9ab6-aa91d448a0c4.png">
 
 ## Improvements
+TFX is still under heavy development. There are a lot of functionalities to be added.
 
+> current todo: restructure into a more modular system, that allows easier edits and optimalisation.
