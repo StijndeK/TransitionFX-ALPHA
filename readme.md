@@ -82,3 +82,6 @@ Important future points:
 - [ ] Construct a more user friendly interface 
 - [ ] Add more effects
 - [ ] Add more waveforms
+
+## Notes
+TFX Alpha is the first public version of TFX. 
