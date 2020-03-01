@@ -17,7 +17,7 @@ NOTE: Some of the JUCE and Maximilian source code has been edited to allow for c
 TFX is divided into two main components that come together in the Processor. 
 - The plugin editor handles all visuals and GUI elements
 - The processor handles the audio processing and GUI callback
-![TFX_CLasses](https://user-images.githubusercontent.com/31696336/75609684-0bdca980-5b0b-11ea-8e0f-c8de5617e69a.png)
+![TFX_classes (1)](https://user-images.githubusercontent.com/31696336/75627862-42cac200-5bd4-11ea-82a3-1e20df51648c.png)
 
 ### Synth
 The synthesiser consists out of 3 voices, consisting of subvoices. This hierarchy of voices allows the user to make high impact changes, with little effort. ![TFX_Synth](https://user-images.githubusercontent.com/31696336/75609793-b81e9000-5b0b-11ea-9a8d-ebb65640d3b7.png)
