@@ -38,9 +38,11 @@ To be able to time the audio with visuals the length can be set in time, beat, f
 <img width="612" alt="TFX_timeOptions" src="https://user-images.githubusercontent.com/31696336/75610211-709a0300-5b0f-11ea-9959-bfb02e58bfe2.png">
 
 ### Master Amplitude Envelope
-The main amplitude envelope is one of the most important aspects of a transitional effect, which is why it can be edited in 14 steps. Smooth creates a smoother curve between the 14 points, with a certain amount. The middle slider bar automatically fades the points from a 'exponential' to 'anticlimactic' curve. The release offset serves to lower the volume of the release in contrary to the attack and impact.
+The main amplitude envelope is one of the most important aspects of a transitional effect, which is why it can be edited in 14 steps. Smooth creates a smoother curve between the 14 points, with a certain amount. The middle slider bar automatically fades the points from a 'exponential' to 'anticlimactic' curve. The release offset serves to lower the volume of the release in contrary to the attack and impact. 
 
 <img width="606" alt="TFX_Envelope" src="https://user-images.githubusercontent.com/31696336/75610274-13eb1800-5b10-11ea-9ab6-aa91d448a0c4.png">
+
+All envelope modulation is done with statemachines, consisting of 3 phases(states): attackphase, holdphase, releasephase. Because transition FX usually do not use sustain or decay, the master audio envelope does not make use of these. However when the note is held the sound should keep playing and not trigger the release, which is why the holdphase is added.
 
 ## Improvements
 TFX is still under heavy development. There are a lot of functionalities to be added. Right now my focus lies on optimalisation and converting to a more modular system.
