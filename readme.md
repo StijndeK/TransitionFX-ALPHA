@@ -42,7 +42,27 @@ The main amplitude envelope is one of the most important aspects of a transition
 
 <img width="606" alt="TFX_Envelope" src="https://user-images.githubusercontent.com/31696336/75610274-13eb1800-5b10-11ea-9ab6-aa91d448a0c4.png">
 
-All envelope modulation is done with statemachines, consisting of 3 phases(states): attackphase, holdphase, releasephase. Because transition FX usually do not use sustain or decay, the master audio envelope does not make use of these. However when the note is held the sound should keep playing and not trigger the release, which is why the holdphase is added.
+### More envelopes
+All envelope modulation is done using statemachines, mostly consisting of 3 phases(states): attackphase, holdphase, releasephase. Because transitional effects usually don't have a sustain or decay, the master audio envelope does not make use of these. However when the note is held down the sound should keep playing and the release shouldn't be triggerd, which is why the holdphase is added.
+
+Transitional effects are all about modulated sounds, aspects as amplitude, pitch, filter cutoff should all be modulated in certain ways. For individual different aspects of the sound to modulate, different types of envelope modulation are more effective. Aspects such as amount of steps or linear vs exponential curves have to be considered for every parameter that can be modulated. Herefor I created multiple different types of envelopes within the Envelope class. 
+
+
+```C++
+class Envelopes {
+    
+public:
+    // Envelope types
+    // ar = attack, release and hold
+    double arGemiddelde(double input, int trigger);     // ar average between exponential and linear
+    double arExp(double input, int trigger);    // ar exponential
+    double arLin(double input, int trigger);    // ar linear
+    double arLin4Steps(double input, int trigger);  // ar linear, 4 steps with adjustable x and y
+    double arLin12Steps(double input, int trigger);  // ar linear, 12 steps
+    double dars(double input, int trigger);      // delay ar with optional release
+```
+
+The master amplitude envelope for example uses the arLin12Steps function, in which the user is able to create a exponential curve by drawing a exponential curve with these 12 linear points. To avoid hearing the curves created by conecting linear lines, the user can smooth the edges of the created exponential curve with the smooth and smooth amount functionalities.
 
 ## Improvements
 TFX is still under heavy development. There are a lot of functionalities to be added. Right now my focus lies on optimalisation and converting to a more modular system.
