@@ -20,7 +20,7 @@ TFX is divided into two main components that come together in the Processor.
 ![TFX_classes (1)](https://user-images.githubusercontent.com/31696336/75627862-42cac200-5bd4-11ea-82a3-1e20df51648c.png)
 
 ### Synth
-The synthesiser consists out of 3 voices, consisting of subvoices. This hierarchy of voices allows the user to make high impact changes, with little effort. ![TFX_Synth](https://user-images.githubusercontent.com/31696336/75609793-b81e9000-5b0b-11ea-9a8d-ebb65640d3b7.png)
+The synthesiser consists of multiple voices, containing subvoices. This hierarchy of voices allows the user to make high impact changes, with little effort. ![TFX_Synth](https://user-images.githubusercontent.com/31696336/75609793-b81e9000-5b0b-11ea-9a8d-ebb65640d3b7.png)
 
 ### Dataflow
 ![TFX_DataFlow](https://user-images.githubusercontent.com/31696336/75609831-05026680-5b0c-11ea-82bc-171d6a78d97c.png)
