@@ -30,7 +30,7 @@ The audio and interface are output seperatly.
 ## Important features
 A short overview of some interesting features.
 
-### Beat linking
+### Beatlinking
 When using transitional effects, the point of impact often is set in time (usually connected to image), while the attack and release time can be edited. It is suboptimal to have to reposition the audio file everytime the attack or release change. TFX offers 'beatlinking' as a solution. Beatlinking allows the user to lock the point of impact. When the attack or release time get changed, the point of impact stays the same.
 
 <img width="641" alt="TFX_LengthAndLinking" src="https://user-images.githubusercontent.com/31696336/75610139-d0dc7500-5b0e-11ea-81bc-f52f6d0ef0d9.png">
