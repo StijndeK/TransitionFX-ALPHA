@@ -40,7 +40,7 @@ void TransitionFxAudioProcessorEditor::paint (Graphics& g)
 
     g.setColour (Colours::white);
     g.setFont (26.0f);
-    g.drawText ("TRANSITION FX", area, Justification::centredTop);
+    g.drawText ("TRANSITION FX - ALPHA", area, Justification::centredTop);
 }
 
 void TransitionFxAudioProcessorEditor::resized()

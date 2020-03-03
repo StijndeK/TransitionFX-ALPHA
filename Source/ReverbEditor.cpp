@@ -50,9 +50,6 @@ void ReverbEditor::paint (Graphics& g)
     g.setColour(Colour(processor.red, processor.green, processor.blue));
     g.fillRoundedRectangle(areaRR.getX(), areaRR.getY(), areaRR.getWidth(), areaRR.getHeight(), 8);
     
-//    g.setFont (16.0f);
-//    g.drawText ("Reverb", area, Justification::centredTop);
-    
     // draw slider text
     g.setColour (Colours::white);
     Rectangle<int> area2 = getLocalBounds().reduced(60).removeFromBottom(40);

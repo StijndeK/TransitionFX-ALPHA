@@ -107,3 +107,7 @@ AudioFiles/Impact1.wav
 AudioFiles/Big_Impact.wav
 TransitionFX alias
 TransitionFX.jucer
+Builds/MacOSX/TransitionFX.xcodeproj/xcuserdata/stijn.xcuserdatad/xcschemes/TransitionFX - VST3.xcscheme
+Builds/MacOSX/TransitionFX.xcodeproj/xcuserdata/stijn.xcuserdatad/xcschemes/TransitionFX - VST3 2.xcscheme
+Builds/MacOSX/TransitionFX.xcodeproj/xcuserdata/stijn.xcuserdatad/xcschemes/TransitionFX - Standalone Plugin 2.xcscheme
+Builds/MacOSX/TransitionFX.xcodeproj/xcuserdata/stijn.xcuserdatad/xcschemes/TransitionFX - All.xcscheme

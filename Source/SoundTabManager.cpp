@@ -279,7 +279,6 @@ void SoundTabManager::updateToggleState (Button* button)
         sourceSound.hits.setVisible(true);
     }
     
-    
     if (button == &soundTab.effectsButton) {
         sourceSound.setVisible(false);
         soundTab.setVisible(false);

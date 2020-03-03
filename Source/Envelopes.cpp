@@ -11,6 +11,13 @@
 #include "Envelopes.h"
 
 //==============================================================================
+
+
+// TODO: create relative amount of step envelope PROBLEM: length gets calculated in a different function which is set to 8 steps. This function needs to be called in the init of this function and contain a relative amount of steps
+// TODO: use pointers to set time
+// TODO: clean up header
+
+//==============================================================================
 double Envelopes::dars(double input, int trigger)
 {
     //initialise
@@ -23,6 +30,7 @@ double Envelopes::dars(double input, int trigger)
         amplitude       = 0.0;
         waitPhase       = 1;
         
+        std::cout << "darstrigger" << std::endl;
         dLength = setLength(delayLength);
         Alength = setLength(attackLength);
     }
@@ -213,6 +221,8 @@ double Envelopes::arLin12Steps(double input, int trigger)
             }
         }
     }
+    
+    std::cout << amplitude << std::endl;
     return output;
 }
 
@@ -374,87 +384,79 @@ double Envelopes::arGemiddelde(double input, int trigger)
 //==============================================================================
 double Envelopes::arExp(double input, int trigger)
 {
+    switch(currentEnvState) {
+        case ATTACK:
+            amplitude*= attackExp;
+            if (amplitude>=1) {
+                amplitude=1;
+                currentEnvState = HOLD;
+            }
+            break;
+        case HOLD:
+            amplitude = 1;
+            if (trigger!=1) {
+                currentEnvState = RELEASE;
+            }
+            break;
+        case RELEASE:
+            amplitude*= releaseExp;
+            if (amplitude<=amplitudeStartValue) {
+                amplitude = 0;
+                currentEnvState = STOP;
+            }
+            break;
+        case STOP:
+            amplitude = 0.0;
+            if (trigger == 1) {
+                amplitude = amplitudeStartValue;
+                currentEnvState = ATTACK;
+            }
+            break;
+    }
 
-    //initialise
-    if (trigger == 1 && attackphase != 1 && holdphase != 1){
-        holdcount=0;
-        releasephase=0;
-        attackphase=1;
-        amplitude = amplitudeStartValue;
-    }
-    // go through attacks
-    if (attackphase==1) {
-        output=input*(amplitude*= attackExp);
-    }
-    if (amplitude>=1) {
-        amplitude=1;
-        attackphase=0;
-        holdphase = 1;
-    }
-    // if note is held down
-    if (holdcount<holdtime && holdphase==1) {
-        output=input;
-        holdcount++;
-    }
-    if (holdcount==holdtime && trigger==1) {
-        output=input;
-    }
-    if (holdcount==holdtime && trigger!=1) {
-        holdphase=0;
-        releasephase=1;
-    }
-    // release
-    if (releasephase==1 && amplitude>0.) {
-        //exponential
-        output=input*(amplitude*= releaseExp);
-    }
-    
+    output = input*amplitude;
     return output;
 }
+
 
 //==============================================================================
 double Envelopes::arLin(double input, int trigger)
 {
-    //initialise
-    if (trigger==1 && attackphase!=1 && holdphase!=1){
-        holdcount=0;
-        releasephase=0;
-        attackphase=1;
-        currentsample=0;
-        amplitude = 0.0;
-    }
-    // go through attacks
-    if (attackphase==1) {
-        amplitude+=(1*attackLin);
-        output=input*amplitude;
-    }
-    if (amplitude>=1) {
-        amplitude=1;
-        attackphase=0;
-        holdphase = 1;
-    }
-    // if note is held down
-    if (holdcount<holdtime && holdphase==1) {
-        output=input;
-        holdcount++;
-    }
-    if (holdcount==holdtime && trigger==1) {
-        output=input;
-    }
-    if (holdcount==holdtime && trigger!=1) {
-        holdphase=0;
-        releasephase=1;
-    }
-    // release
-    if (releasephase==1 && amplitude>0.) {
-        amplitude-=(1*releaseLin);
-        output = input*amplitude;
+    switch(currentEnvState) {
+        case ATTACK:
+            amplitude+=(1*attackLin);
+            if (amplitude>=1) {
+                amplitude=1;
+                currentEnvState = HOLD;
+            }
+            break;
+        case HOLD:
+            amplitude = 1;
+            if (trigger!=1) {
+                currentEnvState = RELEASE;
+            }
+            break;
+        case RELEASE:
+            amplitude-=(1*releaseLin);
+            if (amplitude<=0) {
+                amplitude = 0;
+                currentEnvState = STOP;
+            }
+            break;
+        case STOP:
+            amplitude = 0.0;
+            if (trigger == 1) {
+                currentEnvState = ATTACK;
+            }
+            break;
     }
     
+    output = input*amplitude;
     return output;
 }
 
-
+//==============================================================================
+// set length and point values
 //==============================================================================
 void Envelopes::setAttackLin8Steps(double length, double point1, double point2, double point3, double point4, double point5, double point6)
 {

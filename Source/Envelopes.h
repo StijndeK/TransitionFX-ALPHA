@@ -15,6 +15,11 @@
 class Envelopes {
     
 public:
+
+    // arlin envelope states
+    enum ArLinState {ATTACK, HOLD, RELEASE, STOP};
+    // initial state
+    ArLinState currentEnvState = STOP;
     
     double dLength = 0;
     double Alength = 0;
@@ -87,7 +92,7 @@ public:
         }
     }
     
-    // lengtes
+    // Length
     double attackLength;
     double releaseLength;
     double setLength(double attackMS)
@@ -103,7 +108,7 @@ public:
     // verder
     double output;
     double amplitude = 0.001;
-    double amplitudeStartValue = 0.001;
+    double amplitudeStartValue = 0.001;     // define the startvalue for the exponential curve
     double amplitudeExp, amplitudeLin;
     int trigger;
     long holdtime=1;
