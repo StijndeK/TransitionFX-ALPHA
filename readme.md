@@ -62,21 +62,20 @@ public:
     double arGemiddelde(double input, int trigger);     // ar average between exponential and linear
     double arExp(double input, int trigger);    // ar exponential
     double arLin(double input, int trigger);    // ar linear
-    double arLin4Steps(double input, int trigger);  // ar linear, 4 steps with adjustable x and y
-    double arLin12Steps(double input, int trigger);  // ar linear, 12 steps
+    double arLinSteps(double input, int trigger);  // ar linear, 12 steps with adjustable x and y
     double dars(double input, int trigger);      // delay ar with optional release
 ```
 
-The master amplitude envelope for example uses the arLin12Steps function, in which the user is able to create a exponential curve by drawing a exponential curve with these 12 linear points. To avoid be able to hear the corners created by connecting linear lines, the user can smooth the edges of the created exponential curve with the smooth and smooth amount functionalities.
+The master amplitude envelope for example uses the arLinSteps function, in which the user is able to create a exponential curve by drawing a exponential curve with 12 linear points. To avoid being able to hear the corners created by connecting linear lines, the user can smooth the edges of the created exponential curve with the smooth and smooth amount functionalities.
 
-All envelope modulation is done using statemachines, mostly consisting of 4 phases(states): attack, hold, release, stop. Because transitional effects usually don't have a sustain or decay, the master audio envelope does not make use of these. However when the note is held down the sound should keep playing and the release shouldn't be triggerd, which is why the holdphase is added. A basic linear envelope:
+All envelope modulation is done using statemachines, mostly consisting of 4 phases(states): attack, hold, release, stop. Because transitional effects usually don't have a sustain or decay, the master audio envelope does not make use of these. However, when the note is held down the sound should keep playing and the release shouldn't be triggerd, which is why the holdphase is added. A basic linear envelope:
 
 ```C++
 double Envelopes::arLin(double input, int trigger)
 {
     switch(currentEnvState) {
         case ATTACK:
-            amplitude+=(1*attackLin);
+            amplitude += (1 * attackLin);
             if (amplitude>=1) {
                 amplitude=1;
                 currentEnvState = HOLD;
@@ -84,13 +83,13 @@ double Envelopes::arLin(double input, int trigger)
             break;
         case HOLD:
             amplitude = 1;
-            if (trigger!=1) {
+            if (trigger != 1) {
                 currentEnvState = RELEASE;
             }
             break;
         case RELEASE:
-            amplitude-=(1*releaseLin);
-            if (amplitude<=0) {
+            amplitude -= (1 * releaseLin);
+            if (amplitude <= 0) {
                 amplitude = 0;
                 currentEnvState = STOP;
             }
@@ -103,24 +102,24 @@ double Envelopes::arLin(double input, int trigger)
             break;
     }
     
-    output = input*amplitude;
+    output = input * amplitude;
     return output;
 }
 ```
 
 The value by which the amplitude goes up or down during the attack and release is calculated in a different function.
-Linear curve:
+Basic linear curve:
 ```C++
-    attackLin = ((1.0/samplerate) * (1.0 / (attackMS / 1000.0)));
+    attackLin = ((1.0 / samplerate) * (1.0 / (attackMS / 1000.0)));
 ```
-Exponential curve:
+Basic exponential curve:
 ```C++
-    attackExp = pow((1.0/amplitudeStartValue), 1.0 / (samplerate * (attackMS / 1000.0)));
+    attackExp = pow((1.0 / amplitudeStartValue), 1.0 / (samplerate * (attackMS / 1000.0)));
 ```
 
 
 ## Improvements
-TFX is still under development. There are a lot of functionalities to be added. Right now my focus lies on the optimalisation of the audio thread and converting to a more modular system to eventually be able to add and edit components easier.
+TFX is still under development. There are a lot of functionalities to be added. Right now the focus is on the optimalisation of the audio thread and converting to a more modular system to eventually be able to add and edit components easier.
 
 Current MVP: 
 - [ ] Restructure into a more modular system that allows easier edits and optimalisation
