@@ -69,7 +69,54 @@ public:
 
 The master amplitude envelope for example uses the arLin12Steps function, in which the user is able to create a exponential curve by drawing a exponential curve with these 12 linear points. To avoid be able to hear the corners created by connecting linear lines, the user can smooth the edges of the created exponential curve with the smooth and smooth amount functionalities.
 
-All envelope modulation is done using statemachines, mostly consisting of 3 phases(states): attackphase, holdphase, releasephase. Because transitional effects usually don't have a sustain or decay, the master audio envelope does not make use of these. However when the note is held down the sound should keep playing and the release shouldn't be triggerd, which is why the holdphase is added.
+All envelope modulation is done using statemachines, mostly consisting of 4 phases(states): attack, hold, release, stop. Because transitional effects usually don't have a sustain or decay, the master audio envelope does not make use of these. However when the note is held down the sound should keep playing and the release shouldn't be triggerd, which is why the holdphase is added. An example of a simple of a linear ar envelope:
+
+```C++
+double Envelopes::arLin(double input, int trigger)
+{
+    switch(currentEnvState) {
+        case ATTACK:
+            amplitude+=(1*attackLin);
+            if (amplitude>=1) {
+                amplitude=1;
+                currentEnvState = HOLD;
+            }
+            break;
+        case HOLD:
+            amplitude = 1;
+            if (trigger!=1) {
+                currentEnvState = RELEASE;
+            }
+            break;
+        case RELEASE:
+            amplitude-=(1*releaseLin);
+            if (amplitude<=0) {
+                amplitude = 0;
+                currentEnvState = STOP;
+            }
+            break;
+        case STOP:
+            amplitude = 0.0;
+            if (trigger == 1) {
+                currentEnvState = ATTACK;
+            }
+            break;
+    }
+    
+    output = input*amplitude;
+    return output;
+}
+```
+
+The value by which the amplitude goes up or down during the attack and release is calculated in a different function.
+Linear curve:
+```C++
+    attackLin = ((1.0/samplerate) * (1.0 / (attackMS / 1000.0)));
+```
+Exponential curve:
+```C++
+    attackExp = pow((1.0/amplitudeStartValue), 1.0 / (samplerate * (attackMS / 1000.0)));
+```
 
 
 ## Improvements
