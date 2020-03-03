@@ -69,7 +69,7 @@ public:
 
 The master amplitude envelope for example uses the arLin12Steps function, in which the user is able to create a exponential curve by drawing a exponential curve with these 12 linear points. To avoid be able to hear the corners created by connecting linear lines, the user can smooth the edges of the created exponential curve with the smooth and smooth amount functionalities.
 
-All envelope modulation is done using statemachines, mostly consisting of 4 phases(states): attack, hold, release, stop. Because transitional effects usually don't have a sustain or decay, the master audio envelope does not make use of these. However when the note is held down the sound should keep playing and the release shouldn't be triggerd, which is why the holdphase is added. An example of a simple of a linear ar envelope:
+All envelope modulation is done using statemachines, mostly consisting of 4 phases(states): attack, hold, release, stop. Because transitional effects usually don't have a sustain or decay, the master audio envelope does not make use of these. However when the note is held down the sound should keep playing and the release shouldn't be triggerd, which is why the holdphase is added. A basic linear envelope:
 
 ```C++
 double Envelopes::arLin(double input, int trigger)
