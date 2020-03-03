@@ -1,6 +1,6 @@
 # TRANSITION FX
 
-The goals of Transition FX is to create a synthesiser optimalised for creating transitional moving effects such as whooshes, risers and stingers. These effects usually consist of samples and/or synthesis. I found that there was a lack of a intuitive synthesiser that is optimalised for these effects, which is why I started developing Transition FX.
+The goal of Transition FX is to create a synthesiser optimalised for creating transitional moving effects such as whooshes, risers and stingers. These effects usually consist of samples and/or synthesis. I found that there was a lack of a intuitive synthesiser that is optimalised for these effects, which is why I started developing Transition FX.
 
 ```diff
 - TFX IS STILL UNDER DEVELOPMENT, ALL FEATURES ARE SUBJECT TO CHANGE.
