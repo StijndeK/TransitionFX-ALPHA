@@ -28,9 +28,7 @@ public:
     double arGemiddelde(double input, int trigger);     // ar gemiddelde tussen exp en lin
     double arExp(double input, int trigger);    // ar exponentieel
     double arLin(double input, int trigger);    // ar Linear
-    double arLin4Steps(double input, int trigger);  // ar Linear 4 stappen met verstelbare x en y
     double arLin12Steps(double input, int trigger);  // ar Linear 8 stappen attack en release
-    
     double dars(double input, int trigger);      // dasr Linear with choice for release or no release
 
     // Delay
