@@ -122,6 +122,7 @@ Basic exponential curve:
 TFX is still under development. There are a lot of functionalities to be added. Right now the focus is on the optimalisation of the audio thread and converting to a more modular system to eventually be able to add and edit components easier.
 
 Current MVP: 
+- [ ] Complete refactor
 - [ ] Restructure into a more modular system that allows easier edits and optimalisation
 - [ ] Use listeners to remove as much as possible from the processblock
 
