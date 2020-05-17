@@ -108,7 +108,7 @@ double Envelopes::arLin(double input, int trigger)
 ```
 
 The value by which the amplitude goes up or down during the attack and release is calculated in a different function.
-```C+
+```C++
     // Basic linear curve
     attackLin = ((1.0 / samplerate) * (1.0 / (attackMS / 1000.0)));
 
