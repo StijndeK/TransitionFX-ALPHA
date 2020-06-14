@@ -118,7 +118,7 @@ The value by which the amplitude goes up or down during the attack and release i
 
 
 ## Improvements
-TFX is still under development. There are a lot of functionalities to be added. Right now my focus is on the optimalisation of the audio thread and converting to a more modular system to eventually be able to add and edit components more easily.
+TFX is still under development. There are a lot of functionalities to be added. At the moment I am refactoring the code in a [second repository](https://github.com/StijndeK/TransitionFX).
 
 Current MVP: 
 - [ ] Complete refactor
